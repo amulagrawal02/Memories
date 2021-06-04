@@ -11,7 +11,7 @@ body {
   width: 80%;
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0.7rem auto;
   border: 2px whitesmoke solid;
   border-radius: 10px;
   box-shadow: 2px 2px;
@@ -23,8 +23,9 @@ body {
   padding-left: 0.5rem;
 }
 .container {
-  margin: 0 auto;
+  margin: 0.7rem auto;
   border: 2px solid black;
   max-width: 80%;
   display: flex;
+  justify-content: space-evenly;
 }
