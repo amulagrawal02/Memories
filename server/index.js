@@ -14,7 +14,7 @@ app.use(express.urlencoded());
 
 app.use(cors());
 
-app.use("/posts", postRoutes);
+app.use("/", postRoutes);
 mongoose
   .connect(process.env.CONNECTION_URL, {
     useNewUrlParser: true,

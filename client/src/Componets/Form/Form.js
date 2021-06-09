@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import "./Form.css";
 import FileBase from "react-file-base64";
 import axios from "axios";
-const url = "http://localhost:5000/posts";
+import { statusContext } from "../../App";
+const url = "http://localhost:5000/";
 function Form() {
   const [data, setData] = useState({
     creator: "",
     title: "",
     message: "",
-    tag: "",
+    tags: [],
     selectedFile: "",
   });
+  const { status, updateStatus } = useContext(statusContext);
 
   const handleSumbit = async (e) => {
     e.preventDefault();
     console.log("Yes");
     await axios
-      .post(url, data)
+      .post(url + "createPosts", data)
       .then((response) => {
         console.log(response);
       })
@@ -24,6 +26,14 @@ function Form() {
         console.log(err);
       });
     console.log("Y");
+    updateStatus(true);
+    setData({
+      creator: "",
+      title: "",
+      message: "",
+      tags: [],
+      selectedFile: "",
+    });
   };
 
   return (
@@ -50,9 +60,9 @@ function Form() {
         ></input>
         <input
           type="text"
-          placeholder="tag"
-          value={data.tag}
-          onChange={(e) => setData({ ...data, tag: e.target.value })}
+          placeholder="tags"
+          value={data.tags}
+          onChange={(e) => setData({ ...data, tags: e.target.value })}
         ></input>
 
         <div>

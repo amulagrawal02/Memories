@@ -20,3 +20,12 @@ module.exports.createPost = async (req, res) => {
     res.status(409).json({ message: error.message });
   }
 };
+
+module.exports.getPost = async (req, res) => {
+  try {
+    const Data = await PostMessage.find();
+    res.status(201).json(Data);
+  } catch (error) {
+    res.status(409).json({ message: error.message });
+  }
+};
