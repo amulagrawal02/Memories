@@ -26,7 +26,9 @@ function Form() {
         console.log(err);
       });
     console.log("Y");
-    updateStatus(true);
+    var r1 = Math.floor(Math.random() * 100 + 1);
+    var r2 = Math.floor(Math.random() * 9 + 1);
+    updateStatus(r1 * r2);
     setData({
       creator: "",
       title: "",

@@ -1,9 +1,11 @@
 import React from "react";
 
-function Post() {
+function Post(value) {
   return (
     <div>
-      <h2>Post</h2>
+      {console.log("Inside post.js", value)}
+      <h1>Post</h1>
+      <p>{value.value._id}</p>
     </div>
   );
 }

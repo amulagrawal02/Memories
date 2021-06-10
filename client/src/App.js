@@ -4,10 +4,10 @@ import "./AppStyle.css";
 import Form from "./Componets/Form/Form";
 import Posts from "./Componets/Posts/Posts";
 
-const statusContext = React.createContext();
+const statusContext = React.createContext(1);
 
 function App() {
-  const [status, setStatus] = useState("false");
+  const [status, setStatus] = useState(1);
   return (
     <div className="main-container">
       <div className="AppBar">
